@@ -12,24 +12,34 @@ public class Main
 		// TODO Auto-generated method stub
 		Confucian confucian = new Confucian();
 		Buddhist buddhist = new Buddhist();
-		Thread t =new Thread(buddhist);
+//		Thread t =new Thread(buddhist);
+//		t.start();
+//		InputStreamReader m = new InputStreamReader(System.in);
+//		BufferedReader reader = new BufferedReader(m);
+//		try
+//		{
+//			reader.readLine();
+//			reader.close();
+//			buddhist.quitflag=true;
+//			t.interrupt();
+//		}
+//		catch(Exception e)
+//		{
+//			
+//		}
+		confucian.start();
+		Thread t = new Thread(buddhist);
 		t.start();
-		InputStreamReader m = new InputStreamReader(System.in);
-		BufferedReader reader = new BufferedReader(m);
 		try
 		{
-			reader.readLine();
-			reader.close();
-			buddhist.quitflag=true;
-		}
-		catch(Exception e)
+			t.join();
+		} catch (InterruptedException e)
 		{
-			
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
-//		con1.start();
-//		Thread t = new Thread(bud1);
-//		t.start();
-//		System.out.println(con1);
+//		System.out.println(confucian);
+		System.out.println("exit the thread!");
 	}
 
 }
